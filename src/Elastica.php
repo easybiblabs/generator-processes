@@ -30,7 +30,7 @@ class Elastica
      * @param Traversable $itemSets Arrays of items, each item must either be
      *      an array containing an id key or an object with a getId() method
      *
-     * @return Traversable The input items
+     * @return Traversable An iterator returning the input values
      */
     public static function write(\Elastica\Type $elasticaType, $itemSets)
     {
