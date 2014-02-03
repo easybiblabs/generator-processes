@@ -47,8 +47,8 @@ Flattens the input by a single level, thus reversing a bulkify operation.
 
     use Easybib\Process\Transform;
 
-    $bulks = [[1, 2], [3, 4]];
+    $bulks = [[1, 2], [3, 4], [5, ['some', 'array']]]];
 
     $outputIterator = Transform::unbulkify($bulks);
 
-    // [1, 2, 3, 4] == iterator_to_array($outputIterator)
+    // [1, 2, 3, 4, 5, ['some', 'array']] == iterator_to_array($outputIterator)
