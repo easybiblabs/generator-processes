@@ -22,7 +22,8 @@
     },
     "require-dev": {
         "ruflin/elastica": "~0.90.2",
-        "phpunit/phpunit": "~3.7.30"
+        "phpunit/phpunit": "~3.7.30",
+        "squizlabs/php_codesniffer": "1.*"
     },
     "suggest": {
         "ruflin/elastica": "~0.90.2"
