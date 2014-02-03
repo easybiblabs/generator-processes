@@ -21,6 +21,10 @@
         "react/partial": "~2.0"
     },
     "require-dev": {
+        "ruflin/elastica": "~0.90.2",
+        "phpunit/phpunit": "~3.7.30"
+    },
+    "suggest": {
         "ruflin/elastica": "~0.90.2"
     }
 }
