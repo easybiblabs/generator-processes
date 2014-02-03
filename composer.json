@@ -1,0 +1,24 @@
+{
+    "name": "easybib/generator-processes",
+    "type": "library",
+    "description": "A collection of processes for iterators",
+    "keywords": ["silex", "elastica", "elasticsearch", "elastic", "search"],
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Nils Adermann",
+            "email": "naderman@naderman.de",
+            "homepage": "http://www.naderman.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "EasyBib\\Process\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "ruflin/elastica": "~0.90.2",
+        "react/partial": "~2.0"
+    }
+}
