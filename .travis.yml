@@ -5,6 +5,8 @@ php:
  - hhvm
 
 before_script:
+  - php -r "var_dump(PHP_VERSION);"
+  - ./composer.phar show php
   - ./composer.phar install --dev --prefer-source --no-interaction
 
 script:
