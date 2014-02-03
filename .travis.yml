@@ -1,0 +1,21 @@
+language: php
+
+php:
+ - 5.5
+ - hhvm
+
+before_script:
+  - ./composer.phar install --dev --prefer-source --no-interaction
+
+script:
+  - ./vendor/bin/phpcs --standard=psr2 ./src
+  - ./vendor/bin/phpunit
+
+# travis should only notify us if the build fails
+notifications:
+  email:
+    on_success: never
+
+matrix:
+    allow_failures:
+        - php: hhvm
