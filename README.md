@@ -2,6 +2,8 @@
 
 A collection of processes operating on iterators, usually implemented as generators
 
+[![Build Status](https://travis-ci.org/easybiblabs/generator-processes.png?branch=master)](https://travis-ci.org/easybiblabs/generator-processes)
+
 # Processes
 
 ## ElasticSearch::write
