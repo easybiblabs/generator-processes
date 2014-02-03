@@ -6,6 +6,9 @@ A collection of processes operating on iterators, usually implemented as generat
 
 # Processes
 
+All processes are callables which operate on an input traversable (typically
+an iterator) and return an iterator.
+
 ## Bulk adding Elastica documents
 `\EasyBib\Process\Elastica::write` uses Elastica to bulk write arrays of
 documents to Elasticsearch using an Elastica type. You may use
