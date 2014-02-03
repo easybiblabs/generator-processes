@@ -2,7 +2,7 @@
     "name": "easybib/generator-processes",
     "type": "library",
     "description": "A collection of processes for iterators",
-    "keywords": ["silex", "elastica", "elasticsearch", "elastic", "search"],
+    "keywords": ["generator", "iterator", "elastica", "elasticsearch", "functional", "process"],
     "license": "BSD-2-Clause",
     "authors": [
         {
