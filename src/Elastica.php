@@ -59,4 +59,48 @@ class Elastica
     {
         return Partial\bind(array(Elastica::class, 'write'), $elasticaType);
     }
+
+    /**
+     * Searches an elastica index for a given set of keywords
+     *
+     * @param \Elastica\Index $elasticaIndex The index to search
+     * @param int $limit The maximum number of elements to return
+     * @param string $keywords The search query
+     * @param int $offset The offset of documents to start from
+     *
+     * @return Traversable An iterator returning the resulting documents
+     */
+    public static function search(\Elastica\Index $elasticaIndex, $limit, $keywords, $offset)
+    {
+        $query = new \Elastica\Query();
+        $query->setFrom($offset);
+        $query->setLimit($limit);
+
+        if ($keywords) {
+            $queryString = new \Elastica\Query\QueryString();
+            $queryString->setDefaultOperator('AND');
+            $queryString->setQuery(str_replace('/', '\\/', $keywords));
+            $query->setQuery($queryString);
+        } else {
+            $query = new \Elastica\Query\MatchAll();
+        }
+
+        foreach ($elasticaIndex->search($query) as $document) {
+            yield $document->getData();
+        }
+    }
+
+    /**
+     * Returns Elastica::search bound to the given elastica index and result limit
+     *
+     * @param \Elastica\Index $elasticaIndex The elastica index to search
+     * @param int $limit The maximum number of results to return
+     *
+     * @return callable
+     */
+    public static function bindSearch(\Elastica\Index $elasticaIndex, $limit)
+    {
+        return Partial\bind(array(Elastica::class, 'search'), $elasticaIndex, $limit);
+    }
+
 }

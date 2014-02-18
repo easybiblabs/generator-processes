@@ -29,6 +29,19 @@ iterator of document sets.
 
     // $documentGroups == iterator_to_array($outputIterator);
 
+## Searching Elastica documents
+`EasyBib\Process\Elastica::search` uses Elastica to search for a set of
+documents matching a given search query. You may use
+`Elastica::bindSearch($type, $limit)` to retrieve a method which accepts only
+a search query string and an initial search offset.
+
+    use Easybib\Process\Elastica;
+
+    $iterator = Elastica::search($elasticaIndex, 100, $keywords, 0);
+    // equivalent to
+    $search = Elastica::bindSearch($elasticaIndex, 100);
+    $iterator = $search($keywords, 0);
+
 
 ## Bulkify Transformation
 `\EasyBib\Process\Transform::bulkify` aggregates the input iterator into arrays.
