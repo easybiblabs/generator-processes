@@ -102,5 +102,4 @@ class Elastica
     {
         return Partial\bind(array(Elastica::class, 'search'), $elasticaIndex, $limit);
     }
-
 }
