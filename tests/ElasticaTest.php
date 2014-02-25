@@ -67,11 +67,11 @@ class ElasticaTest extends TestCase
               ->with($this->callback(function (\Elastica\Query $query) {
                   return $query->getParam('size') == 2 &&
                       $query->getParam('from') == 10 &&
-                      $query->getParam('query')['query_string']['query'] == 'foo';
+                      $query->getParam('query')['query_string']['query'] == 'foo\\\\\/bar\\\\baz\/fub';
               }))
               ->will($this->returnValue($this->documentSets[0]));
 
-        $keywords = 'foo';
+        $keywords = 'foo\/bar\baz/fub';
         $search = Elastica::bindSearch($index, 2);
         $result = iterator_to_array($search($keywords, 10));
         $this->assertEquals($this->itemSets[0], $result);

@@ -79,7 +79,7 @@ class Elastica
         if ($keywords) {
             $queryString = new \Elastica\Query\QueryString();
             $queryString->setDefaultOperator('AND');
-            $queryString->setQuery(str_replace('/', '\\/', $keywords));
+            $queryString->setQuery(str_replace('/', '\\/', addslashes($keywords)));
             $query->setQuery($queryString);
         } else {
             $query = new \Elastica\Query\MatchAll();
