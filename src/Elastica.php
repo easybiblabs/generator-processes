@@ -77,9 +77,14 @@ class Elastica
         $query->setLimit($limit);
 
         if ($keywords) {
+            $chars = ['\\', '+', '-', '&&', '||', '!', '(', ')', '{', '}', '[', ']', '^', '"', '~', '*', '?', ':', '/'];
+            $escaped = array_map(function ($c) {
+                return '\\'.$c;
+            }, $chars);
+            $keywords = str_replace($chars, $escaped, $keywords);
             $queryString = new \Elastica\Query\QueryString();
             $queryString->setDefaultOperator('AND');
-            $queryString->setQuery(str_replace('/', '\\/', addslashes($keywords)));
+            $queryString->setQuery($keywords);
             $query->setQuery($queryString);
         } else {
             $query = new \Elastica\Query\MatchAll();
