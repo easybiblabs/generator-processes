@@ -3,7 +3,7 @@
     "type": "library",
     "description": "A collection of processes for iterators",
     "keywords": ["generator", "iterator", "elastica", "elasticsearch", "functional", "process"],
-    "license": "BSD-2-Clause",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Nils Adermann",
